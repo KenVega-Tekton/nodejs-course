@@ -1,0 +1,21 @@
+Call stack
+  pila de procesos. solo puede realizar una cosa a la vez
+  si hay un proceso que tomará tiempo por sí solo. lo envía al node API
+
+Node APIs
+  se resuelven aqui los procesos de manera asicrona y luego van a Callback Queue
+
+Event Loop
+  chequea entre call stack y Callback Queue si hay algo por ejecutarse
+
+Callback Queue
+  La pila de procesos que ya están listos para ser ejecutados (como el resultado de un Callback que tomó un tiempo en ejecutarse)
+
+---
+
+callback function
+  funcion que se pasa como argumento a otra funcion
+  que se ejecutara dentro de esa otra funcion cuando algo pase
+    esperar 2 segundos
+    un query de DB terminado
+    recibir una respuesta HTTP request 

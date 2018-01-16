@@ -19,17 +19,22 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
     console.log(errorMessage);
   } else {
     //console.log(JSON.stringify(results, undefined, 2));
-    console.log(results);
-  }
-});
+    //console.log(results);
 
-let lng = 39.9396284,
-  lat = -75.186639;
-
-weather.getWeather(lng, lat, (errorMessage, weatherResults) => {
-  if (errorMessage) {
-    console.log(errorMessage);
-  } else {
-    console.log(weatherResults);
+    weather.getWeather(
+      results.latitude,
+      results.longitude,
+      (errorMessage, weatherResults) => {
+        if (errorMessage) {
+          console.log(errorMessage);
+        } else {
+          console.log(
+            `It's currently ${weatherResults.temperature} in ${
+              results.address
+            }. But it feels like ${weatherResults.apparentTemperature} today.`
+          );
+        }
+      }
+    );
   }
 });
